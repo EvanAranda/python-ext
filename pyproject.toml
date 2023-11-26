@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ext"
+requires-python = ">=3.11"
+description = "(Small) Extensions to python stdlib packages and other popular packages."
+dependencies = ["pydantic", "pydantic-settings"]
+dynamic = ["version"]
+
+[project.optional-dependencies]
+dev = ["pytest"]
+
+[tool.setuptools]
+packages = ["ext"]
+
+[tool.setuptools.dynamic]
+version = { attr = "ext.VERSION" }
+readme = { file = "readme.md" }
